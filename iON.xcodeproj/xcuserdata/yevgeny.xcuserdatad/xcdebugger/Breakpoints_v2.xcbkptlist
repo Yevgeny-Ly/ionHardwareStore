@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "E3445156-F8FE-48E9-B1D9-158003F0BFEC"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B031770A-7515-49D0-BBC6-CA4EBC9B68FB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iON/Modules/Main/ProductDetailModule/View/ProductDetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "tapButtonFavorites&#x421;ommodity()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B031770A-7515-49D0-BBC6-CA4EBC9B68FB - 366f3196d816e98d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Project_shopping_cart.ProductDetailViewController.tapButtonFavorites&#x421;ommodity() -&gt; ()"
+                  moduleName = "Project_shopping_cart"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yevgeny/Documents/SwiftPlayground/iON/iON/Modules/Main/ProductDetailModule/View/ProductDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "127"
+                  endingLineNumber = "127"
+                  offsetFromSymbolStart = "380">
+               </Location>
+               <Location
+                  uuid = "B031770A-7515-49D0-BBC6-CA4EBC9B68FB - 366f3196d816e9ec"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Project_shopping_cart.ProductDetailViewController.tapButtonFavorites&#x421;ommodity() -&gt; ()"
+                  moduleName = "Project_shopping_cart"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yevgeny/Documents/SwiftPlayground/iON/iON/Modules/Main/ProductDetailModule/View/ProductDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128"
+                  offsetFromSymbolStart = "528">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6FAF7638-E11D-4BEC-9C8E-B301BDF83D53"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iON/Modules/Main/ProductDetailModule/Presenter/ProductDetailPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "set(favoriteID:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6FAF7638-E11D-4BEC-9C8E-B301BDF83D53 - fbb6dbdeab7d38d5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Project_shopping_cart.ProductDetailPresenter.set(favoriteID: Swift.String) -&gt; ()"
+                  moduleName = "Project_shopping_cart"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yevgeny/Documents/SwiftPlayground/iON/iON/Modules/Main/ProductDetailModule/Presenter/ProductDetailPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  uuid = "6FAF7638-E11D-4BEC-9C8E-B301BDF83D53 - fbb6dbdeab7d381b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Project_shopping_cart.ProductDetailPresenter.set(favoriteID: Swift.String) -&gt; ()"
+                  moduleName = "Project_shopping_cart"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yevgeny/Documents/SwiftPlayground/iON/iON/Modules/Main/ProductDetailModule/Presenter/ProductDetailPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "60">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4AE12D48-4063-4CBF-A342-4DC74CF871C8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iON/Modules/Main/ProductDetailModule/Presenter/ProductDetailPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "set(favoriteID:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4AE12D48-4063-4CBF-A342-4DC74CF871C8 - fbb6dbdeab7d378c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Project_shopping_cart.ProductDetailPresenter.set(favoriteID: Swift.String) -&gt; ()"
+                  moduleName = "Project_shopping_cart"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yevgeny/Documents/SwiftPlayground/iON/iON/Modules/Main/ProductDetailModule/Presenter/ProductDetailPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "412">
+               </Location>
+               <Location
+                  uuid = "4AE12D48-4063-4CBF-A342-4DC74CF871C8 - fbb6dbdeab7d37f2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Project_shopping_cart.ProductDetailPresenter.set(favoriteID: Swift.String) -&gt; ()"
+                  moduleName = "Project_shopping_cart"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yevgeny/Documents/SwiftPlayground/iON/iON/Modules/Main/ProductDetailModule/Presenter/ProductDetailPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "412">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "734F6670-97F5-4078-9DF9-4ACC4435B8C9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iON/Modules/Main/ProductListModule/View/ProductListTableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "favoriteProductPressButton()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A789C4C7-404C-4138-AA4B-1506B761538E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iON/Modules/Main/ProductListModule/Presenter/ProductListPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "set(favoritesID:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1C2F3032-4648-4E8F-AE6D-00991D4EE15F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iON/Modules/Main/ProductListModule/Presenter/ProductListPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "set(favoritesID:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

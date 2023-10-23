@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "iPhone15ProTitaniumBlue.jpeg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
