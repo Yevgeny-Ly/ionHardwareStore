@@ -6,9 +6,3 @@
 //
 
 import UIKit
-
-//extension Notification.Name {
-//    static var updateFavoriteDetail: Notification.Name {
-//        return .init("updateFavoriteDetail")
-//    }
-//}

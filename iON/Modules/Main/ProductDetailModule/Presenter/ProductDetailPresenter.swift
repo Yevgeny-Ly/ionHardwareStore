@@ -41,7 +41,7 @@ extension ProductDetailPresenter: ProductDetailOutputInteractorProtocol {
         }
         favoriteDataManager.save(items: items) // сохранение состояния избранного
         
-// теперь надо отправить событие, которое говорит, что наши данные обновились
+// отправляю событие, которое говорит, что наши данные обновились
         NotificationCenter.default.post(name: NSNotification.Name.updateFavorite, object: nil)
     }
     

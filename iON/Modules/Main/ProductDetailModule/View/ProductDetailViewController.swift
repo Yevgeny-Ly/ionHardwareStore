@@ -106,13 +106,13 @@ class ProductDetailViewController: UIViewController {
     }
     
     private func listensNotificationFavoriteProductList() {
-        NotificationCenter.default.addObserver(self, selector: #selector(updateFavorite), name: NSNotification.Name.updateFavorite, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(updateFavorite), name: NSNotification.Name.updateFavorite, object: nil)
     }
     
-    @objc
-    private func updateFavorite() {
-        presenter?.viewDidLoad()
-    }
+//    @objc
+//    private func updateFavorite() {
+//        presenter?.viewDidLoad()
+//    }
     
     private func setupBarButtomItem() {
         favoriteButtonForItem.setImage(UIImage(systemName: statusIsFavoriteButton ? "heart.fill" : "heart"), for: .normal)

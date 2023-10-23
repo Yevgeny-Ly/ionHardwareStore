@@ -33,6 +33,7 @@ class ProductListViewController: UIViewController {
     }
     
     private func listensNotificationFavoriteToDetailScreen() {
+        
 // создаю слушателя нашего NotificationCenter, надо узнать что именно он нам отправил
     NotificationCenter.default.addObserver(self, selector: #selector(updateFavorite), name: NSNotification.Name.updateFavorite, object: nil)
     }
