@@ -7,6 +7,12 @@
 
 import UIKit
 
+protocol ProductListRouterProtocol: AnyObject {
+    // Present -> Entity
+    func pushToProductDetailProtocol(with productList: Product, from view: UIViewController)
+    static func createProductListModule(productListRef: ProductListViewController)
+}
+
 class ProductListRouter: ProductListRouterProtocol {
     
     func pushToProductDetailProtocol(with productList: Product, from view: UIViewController) {

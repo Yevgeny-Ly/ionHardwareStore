@@ -7,6 +7,17 @@
 
 import UIKit
 
+protocol ProductListInputInteractorProtocol: AnyObject {
+    var presenter: ProductListOutputInteractorProtocol? { get set }
+    // Presenter -> Interactor
+    func getProductList()
+}
+
+protocol ProductListOutputInteractorProtocol: AnyObject {
+    // Interactor -> Presenter
+    func productListDidFetch(productList: [Product])
+}
+
 class ProductListInteractor: ProductListInputInteractorProtocol {
 
 // т.к. presenter и interactor захватывают друг друга сильными ссылками, надо ослабить ссылку у кого-то одного, чтобы не было цикла сильных ссылок
