@@ -41,7 +41,6 @@ class ProductListTableViewCell: UITableViewCell {
     private lazy var productFavoriteButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "heart"), for: .normal)
-        button.tintColor = .black
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(favoriteProductPressButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -51,7 +50,7 @@ class ProductListTableViewCell: UITableViewCell {
     private let productNameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.font = .robotoBold14()
+        label.font = .robotoMedium18()
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -59,8 +58,8 @@ class ProductListTableViewCell: UITableViewCell {
     
     private let costLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
-        label.font = .robotoMedium12()
+        label.textColor = .specialGreen
+        label.font = .robotoBold18()
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -69,20 +68,29 @@ class ProductListTableViewCell: UITableViewCell {
     private let oldCostLabel: UILabel = {
         let label = UILabel()
         label.textColor = .specialGrey
-        label.font = .robotoMedium10()
+        label.font = .robotoMedium12()
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private var costBlockStackView = UIStackView()
+    
+    private let colorWheelImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.layer.masksToBounds = false
+        imageView.layer.borderWidth = 1
+        imageView.layer.cornerRadius = imageView.frame.height / 2
+        imageView.layer.borderColor = UIColor.black.cgColor
+        imageView.clipsToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
      
     private lazy var basketButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = .specialOliva
-        button.setTitle("add to basket", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = .robotoBold18()
+        button.setImage(UIImage(systemName: "cart"), for: .normal)
+        button.tintColor = .black
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(addToBasketPressButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -104,7 +112,7 @@ class ProductListTableViewCell: UITableViewCell {
         product = model
         statusIsFavoriteButton = isFavorite
         
-        productFavoriteButton.tintColor = isFavorite ? .specialGrey : .specialGrey // меняю цвет при нажатии на кнопку сердечко
+        productFavoriteButton.tintColor = isFavorite ? .specialOrange : .black // меняю цвет при нажатии на кнопку сердечко
         productFavoriteButton.setImage(UIImage(systemName: isFavorite ? "heart.fill" : "heart"), for: .normal)
         
         commodityImageView.image = UIImage(named: model.picture)
@@ -117,7 +125,7 @@ class ProductListTableViewCell: UITableViewCell {
         backgroundColor = .clear
         selectionStyle = .none
         
-        costBlockStackView = UIStackView(arrangedSubviews: [costLabel, oldCostLabel], axis: .horizontal, spacing: 2)
+        costBlockStackView = UIStackView(arrangedSubviews: [costLabel, oldCostLabel], axis: .horizontal, spacing: 10)
          
         contentView.addSubview(backgroundCellView)
         contentView.addSubview(commodityImageView)
@@ -171,29 +179,29 @@ extension ProductListTableViewCell {
             backgroundCellView.rightAnchor.constraint(equalTo: rightAnchor, constant: -10),
             backgroundCellView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
             
-            commodityImageView.topAnchor.constraint(equalTo: topAnchor, constant: 12),
-            commodityImageView.leftAnchor.constraint(equalTo: marginGuide.leftAnchor, constant: -2),
+            commodityImageView.centerYAnchor.constraint(equalTo: marginGuide.centerYAnchor),
+            commodityImageView.leftAnchor.constraint(equalTo: marginGuide.leftAnchor, constant: 0),
             commodityImageView.widthAnchor.constraint(equalToConstant: 95),
             commodityImageView.heightAnchor.constraint(equalToConstant: 95),
             
-            productFavoriteButton.topAnchor.constraint(equalTo: commodityImageView.topAnchor, constant: 0),
+            productFavoriteButton.topAnchor.constraint(equalTo: marginGuide.topAnchor, constant: 7),
             productFavoriteButton.rightAnchor.constraint(equalTo: marginGuide.rightAnchor),
             productFavoriteButton.widthAnchor.constraint(equalToConstant: 30),
             productFavoriteButton.heightAnchor.constraint(equalToConstant: 30),
             
-            productNameLabel.topAnchor.constraint(equalTo: marginGuide.topAnchor, constant: 5),
+            productNameLabel.topAnchor.constraint(equalTo: marginGuide.topAnchor, constant: 10),
             productNameLabel.leftAnchor.constraint(equalTo: commodityImageView.rightAnchor, constant: 10),
             productNameLabel.rightAnchor.constraint(equalTo: productFavoriteButton.leftAnchor, constant: -5),
+            productNameLabel.bottomAnchor.constraint(equalTo: costBlockStackView.topAnchor, constant: -5),
             
-            costBlockStackView.topAnchor.constraint(equalTo: productNameLabel.bottomAnchor, constant: 5),
+            costBlockStackView.topAnchor.constraint(equalTo: productNameLabel.bottomAnchor, constant: 15),
             costBlockStackView.leftAnchor.constraint(equalTo: commodityImageView.rightAnchor, constant: 10),
-            costBlockStackView.rightAnchor.constraint(equalTo: marginGuide.rightAnchor, constant: -140),
             
             basketButton.topAnchor.constraint(equalTo: costBlockStackView.bottomAnchor, constant: 10),
-            basketButton.leftAnchor.constraint(equalTo: commodityImageView.rightAnchor, constant: 10),
-            basketButton.widthAnchor.constraint(equalToConstant: 250),
-            basketButton.heightAnchor.constraint(equalToConstant: 25),
-            basketButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15)
+            basketButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -20),
+            basketButton.widthAnchor.constraint(equalToConstant: 30),
+            basketButton.heightAnchor.constraint(equalToConstant: 30),
+            basketButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
         ])
     }
 }

@@ -1,5 +1,5 @@
 //
-//  FavoritesViewController.swift
+//  СatalogViewController.swift
 //  iON
 //
 //  Created by Евгений Л on 30.09.2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavoritesViewController: UIViewController {
+class СatalogViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

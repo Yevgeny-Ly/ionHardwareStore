@@ -10,9 +10,18 @@ import UIKit
 class ProductListViewController: UIViewController {
 
     private let tableView = UITableView()
+    lazy var searchBar = UISearchBar()
     
     var presenter: ProductListPresenterProtocol?
     var productList = [Product]()
+    
+    lazy private var locationButtonForItem: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(systemName: "mappin.and.ellipse"), for: .normal)
+        button.tintColor = .black
+        button.addTarget(self, action: #selector(pressButtonLocationItem), for: .touchUpInside)
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,16 +29,31 @@ class ProductListViewController: UIViewController {
         presenter?.viewDidLoad()
         
         setupViews()
-        listensNotificationFavoriteToDetailScreen()
     }
 
     private func setupViews() {
         view.backgroundColor = .white
         view.addSubview(tableView)
         
+        setupNavigationController()
+        setupSearchBar()
+        listensNotificationFavoriteToDetailScreen()
         setupDelegates()
         setupTableView()
         setupConstraints()
+    }
+    
+    private func setupNavigationController() {
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.view.backgroundColor = .white
+    }
+    
+    private func setupSearchBar() {
+        searchBar.placeholder = "Найти технику"
+        searchBar.showsScopeBar = true
+        searchBar.scopeButtonTitles = ["Вся техника", "Избранное"]
+
+        navigationItem.titleView = searchBar
     }
     
     private func listensNotificationFavoriteToDetailScreen() {
@@ -37,6 +61,7 @@ class ProductListViewController: UIViewController {
     NotificationCenter.default.addObserver(self, selector: #selector(updateFavorite), name: NSNotification.Name.updateFavorite, object: nil)
     }
     
+<<<<<<< Updated upstream
     @objc
     private func updateFavorite() {
         print("update Favorite")
@@ -44,8 +69,12 @@ class ProductListViewController: UIViewController {
     }
     
     private func setupDelegates() {
+=======
+    func setupDelegates() {
+>>>>>>> Stashed changes
         tableView.dataSource = self
         tableView.delegate = self
+        searchBar.delegate = self
     }
     
     private func setupTableView() {
@@ -59,6 +88,16 @@ class ProductListViewController: UIViewController {
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
+    }
+    
+    @objc
+    private func pressButtonLocationItem() {
+        print("Press Button Location Item")
+    }
+    
+    @objc
+    private func updateFavorite() {
+        presenter?.viewDidLoad()
     }
 }
 
@@ -90,8 +129,8 @@ extension ProductListViewController {
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            tableView.rightAnchor.constraint(equalTo: view.rightAnchor), 
+            tableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 7),
+            tableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -7),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
@@ -108,5 +147,24 @@ extension ProductListViewController: ProductListViewProtocol {
 extension ProductListViewController: ProductListCellDelegate {
     func setting(favoriteID: String) {
         presenter?.set(favoritesID: favoriteID)
+    }
+}
+
+extension ProductListViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+        print(text)
+    }
+}
+
+// когда нажата "отмена" на панели поиска
+extension ProductListViewController: UISearchControllerDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    }
+}
+
+// для самого поля поиска.
+extension ProductListViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
     }
 }
