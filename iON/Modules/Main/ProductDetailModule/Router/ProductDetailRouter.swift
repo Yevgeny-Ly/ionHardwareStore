@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol ProductDetailRouterProtocol: AnyObject {
+    // Present -> Entity
+    func goBackToProductListView(from view: UIViewController)
+}
+
 class ProductDetailRouter: ProductDetailRouterProtocol {
     
     class func createProductDetailModule(with productDetailRef: ProductDetailViewController, from product: Product) {

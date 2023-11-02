@@ -5,7 +5,12 @@
 //  Created by Евгений Л on 29.09.2023.
 //
 
-import UIKit 
+import UIKit
+
+protocol ProductListViewProtocol: AnyObject {
+    // Presenter -> View
+    func showProductList(with product: [Product])
+}
 
 class ProductListViewController: UIViewController {
 
@@ -39,7 +44,6 @@ class ProductListViewController: UIViewController {
     
     @objc
     private func updateFavorite() {
-        print("update Favorite")
         presenter?.viewDidLoad()
     }
     

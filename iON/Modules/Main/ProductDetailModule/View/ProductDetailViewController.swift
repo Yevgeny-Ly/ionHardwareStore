@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol ProductDetailViewProtocol: AnyObject {
+    // Presenter -> View
+    func showProductDetail(with product: Product)
+}
+
 class ProductDetailViewController: UIViewController {
     
     var presenter: ProductDetailPresenterProtocol?
@@ -87,7 +92,9 @@ class ProductDetailViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         presenter?.viewDidLoad()
-
+        
+        statusIsFavoriteButton = presenter?.isFavotiteItem ?? false
+    
         setupViews()
         setupBarButtomItem()
         setupConstraints()
@@ -105,6 +112,7 @@ class ProductDetailViewController: UIViewController {
         contentView.addSubview(productNameAndDescriptionStackView)
     }
     
+<<<<<<< Updated upstream
     private func listensNotificationFavoriteProductList() {
         NotificationCenter.default.addObserver(self, selector: #selector(updateFavorite), name: NSNotification.Name.updateFavorite, object: nil)
     }
@@ -114,6 +122,8 @@ class ProductDetailViewController: UIViewController {
         presenter?.viewDidLoad()
     }
     
+=======
+>>>>>>> Stashed changes
     private func setupBarButtomItem() {
         favoriteButtonForItem.setImage(UIImage(systemName: statusIsFavoriteButton ? "heart.fill" : "heart"), for: .normal)
         navigationItem.rightBarButtonItems = [favoriteBarButton]
