@@ -13,9 +13,12 @@ class ProductDetailViewController: UIViewController {
     
     private var statusIsFavoriteButton = false
     
+    lazy var favoriteBarButton = UIBarButtonItem(customView: favoriteButtonForItem)
+    
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.showsVerticalScrollIndicator = false
         return scrollView
     }()
     
@@ -73,15 +76,39 @@ class ProductDetailViewController: UIViewController {
         return label
     }()
     
-    lazy var favoriteButtonForItem: UIButton = {
+    lazy private var favoriteButtonForItem: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "heart"), for: .normal)
-        button.tintColor = .systemGray
-        button.addTarget(self, action: #selector(tapButtonFavoritesСommodity), for: .touchUpInside)
+        button.tintColor = .specialOrange
+        button.addTarget(self, action: #selector(pressButtonFavoritesItem), for: .touchUpInside)
         return button
     }()
-
-    lazy var favoriteBarButton = UIBarButtonItem(customView: favoriteButtonForItem)
+    
+    private lazy var buyInOneClickButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitleColor(.white, for: .normal)
+        button.setTitle("Купить в 1 клик", for: .normal)
+        button.backgroundColor = .specialOrange
+        button.layer.cornerRadius = 10
+        button.titleLabel?.font = .robotoBold16()
+        button.addTarget(self, action: #selector(buttonPressBuyOneClick), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    private lazy var toCartButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitleColor(.white, for: .normal)
+        button.setTitle("В корзину", for: .normal)
+        button.backgroundColor = .specialGreen
+        button.layer.cornerRadius = 10
+        button.titleLabel?.font = .robotoBold16()
+        button.addTarget(self, action: #selector(buttonPressToCart), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    private var blockButtonBuyStackView = UIStackView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,10 +130,24 @@ class ProductDetailViewController: UIViewController {
         
         productNameAndDescriptionStackView = UIStackView(arrangedSubviews: [productNameLabel, productDescriptionLabel], axis: .vertical, spacing: 10)
         contentView.addSubview(productNameAndDescriptionStackView)
+        
+        blockButtonBuyStackView = UIStackView(arrangedSubviews: [buyInOneClickButton, toCartButton], axis: .horizontal, spacing: 10)
+        blockButtonBuyStackView.distribution = .fillEqually
+        view.addSubview(blockButtonBuyStackView)
     }
     
     private func listensNotificationFavoriteProductList() {
         NotificationCenter.default.addObserver(self, selector: #selector(updateFavorite), name: NSNotification.Name.updateFavorite, object: nil)
+    }
+    
+    @objc
+    private func buttonPressBuyOneClick() {
+        print("button Press Buy One Click")
+    }
+    
+    @objc
+    private func buttonPressToCart() {
+        print("button Press To Cart")
     }
     
     @objc
@@ -120,7 +161,8 @@ class ProductDetailViewController: UIViewController {
     }
     
     @objc
-    private func tapButtonFavoritesСommodity() {
+    private func pressButtonFavoritesItem() {
+        
         guard let id = presenter?.product?.id else { return }
         presenter?.set(favoriteID: id)
         
@@ -133,10 +175,12 @@ class ProductDetailViewController: UIViewController {
         UIView.animate(withDuration: 0.1, animations: {
             if !self.statusIsFavoriteButton {
                 self.favoriteButtonForItem.setImage(favoriteProductImage, for: .normal)
+                self.favoriteButtonForItem.tintColor = .specialOrange
                 self.favoriteButtonForItem.transform = (self.favoriteButtonForItem.transform.scaledBy(x: favoriteScale, y: favoriteScale))
                 self.statusIsFavoriteButton = true
             } else {
                 self.favoriteButtonForItem.setImage(noFavoriteProductImage, for: .normal)
+                self.favoriteButtonForItem.tintColor = .black
                 self.favoriteButtonForItem.transform = (self.favoriteButtonForItem.transform.scaledBy(x: unFavoriteScale, y: unFavoriteScale))
                 self.statusIsFavoriteButton = false
             }
@@ -166,7 +210,7 @@ extension ProductDetailViewController {
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leftAnchor.constraint(equalTo: view.leftAnchor),
             scrollView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: blockButtonBuyStackView.topAnchor, constant: 1),
             
             contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             contentView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
@@ -185,7 +229,12 @@ extension ProductDetailViewController {
             productNameAndDescriptionStackView.topAnchor.constraint(equalTo: costBlockStackView.bottomAnchor, constant: 10),
             productNameAndDescriptionStackView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10),
             productNameAndDescriptionStackView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10),
-            productNameAndDescriptionStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
+            productNameAndDescriptionStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            
+            blockButtonBuyStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10),
+            blockButtonBuyStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10),
+            blockButtonBuyStackView.heightAnchor.constraint(equalToConstant: 55),
+            blockButtonBuyStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100)
         ])
     }
 }

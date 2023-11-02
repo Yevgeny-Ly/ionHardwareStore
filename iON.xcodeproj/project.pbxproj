@@ -182,12 +182,12 @@
 			path = Basket;
 			sourceTree = "<group>";
 		};
-		937B231B2ACAB2C5002E6D8B /* Favorites */ = {
+		937B231B2ACAB2C5002E6D8B /* Сatalog */ = {
 			isa = PBXGroup;
 			children = (
 				93AD616C2AC80BD000E49084 /* FavoritesViewController.swift */,
 			);
-			path = Favorites;
+			path = "Сatalog";
 			sourceTree = "<group>";
 		};
 		937B231C2ACAB2D7002E6D8B /* Profile */ = {
@@ -231,7 +231,7 @@
 				93150C752AD938DD00A31052 /* TabBarController */,
 				937B23182ACAB280002E6D8B /* Main */,
 				937B231A2ACAB2AE002E6D8B /* Basket */,
-				937B231B2ACAB2C5002E6D8B /* Favorites */,
+				937B231B2ACAB2C5002E6D8B /* Сatalog */,
 				937B231C2ACAB2D7002E6D8B /* Profile */,
 			);
 			path = Modules;
