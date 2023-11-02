@@ -16,7 +16,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "126"
             endingLineNumber = "126"
-            landmarkName = "tapButtonFavorites&#x421;ommodity()"
+            landmarkName = "setupViews()"
             landmarkType = "7">
             <Locations>
                <Location
@@ -158,9 +158,9 @@
             filePath = "iON/Modules/Main/ProductListModule/View/ProductListTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
-            landmarkName = "favoriteProductPressButton()"
+            startingLineNumber = "195"
+            endingLineNumber = "195"
+            landmarkName = "setupViews()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

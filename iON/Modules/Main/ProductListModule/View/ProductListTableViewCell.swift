@@ -12,14 +12,14 @@ protocol ProductListCellDelegate: AnyObject { // делегат который �
 }
 
 class ProductListTableViewCell: UITableViewCell {
+    
+    weak var delegate: ProductListCellDelegate?
 
-    static let reuseIdentifier = NSStringFromClass(ProductListTableViewCell.self) 
+    static let reuseIdentifier = NSStringFromClass(ProductListTableViewCell.self)
     
     private var statusIsFavoriteButton = false
     
     var product: Product?
-    
-    weak var delegate: ProductListCellDelegate?
     
     private let backgroundCellView: UIView = {
         let view = UIView()
@@ -76,16 +76,68 @@ class ProductListTableViewCell: UITableViewCell {
     
     private var costBlockStackView = UIStackView()
     
-    private let colorWheelImageView: UIImageView = {
+    private let colorWheelOneImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.layer.masksToBounds = false
-        imageView.layer.borderWidth = 1
-        imageView.layer.cornerRadius = imageView.frame.height / 2
-        imageView.layer.borderColor = UIColor.black.cgColor
+        imageView.layer.masksToBounds = true
+        imageView.layer.borderWidth = 0.5
+        imageView.backgroundColor = .yellow
         imageView.clipsToBounds = true
+        imageView.widthAnchor.constraint(equalToConstant: 15).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 15).isActive = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
+    
+    private let colorWheelTwoImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.layer.masksToBounds = true
+        imageView.layer.borderWidth = 0.5
+        imageView.backgroundColor = .red
+        imageView.clipsToBounds = true
+        imageView.widthAnchor.constraint(equalToConstant: 15).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 15).isActive = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    private let colorWheelThreeImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.layer.masksToBounds = true
+        imageView.layer.borderWidth = 0.5
+        imageView.backgroundColor = .systemGray
+        imageView.clipsToBounds = true
+        imageView.widthAnchor.constraint(equalToConstant: 15).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 15).isActive = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    private let colorWheelFourImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.layer.masksToBounds = true
+        imageView.layer.masksToBounds = true
+        imageView.layer.borderWidth = 0.5
+        imageView.backgroundColor = .systemBlue
+        imageView.clipsToBounds = true
+        imageView.widthAnchor.constraint(equalToConstant: 15).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 15).isActive = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    private let colorWheelFiveImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.layer.masksToBounds = true
+        imageView.layer.borderWidth = 0.5
+        imageView.backgroundColor = .specialGreen
+        imageView.clipsToBounds = true
+        imageView.widthAnchor.constraint(equalToConstant: 15).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 15).isActive = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    private var colorBlockStackView = UIStackView()
      
     private lazy var basketButton: UIButton = {
         let button = UIButton(type: .system)
@@ -102,6 +154,15 @@ class ProductListTableViewCell: UITableViewCell {
         
         setupViews()
         setupConstraints()
+    }
+    
+    override func layoutIfNeeded() {
+        super.layoutIfNeeded()
+        colorWheelOneImageView.layer.cornerRadius = colorWheelOneImageView.frame.width / 2
+        colorWheelTwoImageView.layer.cornerRadius = colorWheelTwoImageView.frame.height / 2
+        colorWheelThreeImageView.layer.cornerRadius = colorWheelOneImageView.frame.height / 2
+        colorWheelFourImageView.layer.cornerRadius = colorWheelOneImageView.frame.height / 2
+        colorWheelFiveImageView.layer.cornerRadius = colorWheelOneImageView.frame.height / 2
     }
     
     required init?(coder: NSCoder) {
@@ -126,12 +187,14 @@ class ProductListTableViewCell: UITableViewCell {
         selectionStyle = .none
         
         costBlockStackView = UIStackView(arrangedSubviews: [costLabel, oldCostLabel], axis: .horizontal, spacing: 10)
+        colorBlockStackView = UIStackView(arrangedSubviews: [colorWheelOneImageView, colorWheelTwoImageView, colorWheelThreeImageView, colorWheelFourImageView, colorWheelFiveImageView], axis: .horizontal, spacing: 5)
          
         contentView.addSubview(backgroundCellView)
         contentView.addSubview(commodityImageView)
         contentView.addSubview(productNameLabel)
         contentView.addSubview(costBlockStackView)
         contentView.addSubview(productFavoriteButton)
+        contentView.addSubview(colorBlockStackView)
         contentView.addSubview(basketButton)
     }
     
@@ -196,6 +259,9 @@ extension ProductListTableViewCell {
             
             costBlockStackView.topAnchor.constraint(equalTo: productNameLabel.bottomAnchor, constant: 15),
             costBlockStackView.leftAnchor.constraint(equalTo: commodityImageView.rightAnchor, constant: 10),
+            
+            colorBlockStackView.topAnchor.constraint(equalTo: costBlockStackView.bottomAnchor, constant: 10),
+            colorBlockStackView.leftAnchor.constraint(equalTo: commodityImageView.rightAnchor, constant: 10),
             
             basketButton.topAnchor.constraint(equalTo: costBlockStackView.bottomAnchor, constant: 10),
             basketButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -20),

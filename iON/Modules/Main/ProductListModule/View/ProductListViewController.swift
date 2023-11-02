@@ -8,7 +8,7 @@
 import UIKit 
 
 class ProductListViewController: UIViewController {
-
+    
     private let tableView = UITableView()
     lazy var searchBar = UISearchBar()
     
@@ -30,7 +30,7 @@ class ProductListViewController: UIViewController {
         
         setupViews()
     }
-
+    
     private func setupViews() {
         view.backgroundColor = .white
         view.addSubview(tableView)
@@ -52,16 +52,15 @@ class ProductListViewController: UIViewController {
         searchBar.placeholder = "Найти технику"
         searchBar.showsScopeBar = true
         searchBar.scopeButtonTitles = ["Вся техника", "Избранное"]
-
+        
         navigationItem.titleView = searchBar
     }
     
     private func listensNotificationFavoriteToDetailScreen() {
-// создаю слушателя нашего NotificationCenter, надо узнать что именно он нам отправил
-    NotificationCenter.default.addObserver(self, selector: #selector(updateFavorite), name: NSNotification.Name.updateFavorite, object: nil)
+        // создаю слушателя нашего NotificationCenter, надо узнать что именно он нам отправил
+        NotificationCenter.default.addObserver(self, selector: #selector(updateFavorite), name: NSNotification.Name.updateFavorite, object: nil)
     }
-    
-<<<<<<< Updated upstream
+
     @objc
     private func updateFavorite() {
         print("update Favorite")
@@ -69,9 +68,6 @@ class ProductListViewController: UIViewController {
     }
     
     private func setupDelegates() {
-=======
-    func setupDelegates() {
->>>>>>> Stashed changes
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
@@ -93,11 +89,6 @@ class ProductListViewController: UIViewController {
     @objc
     private func pressButtonLocationItem() {
         print("Press Button Location Item")
-    }
-    
-    @objc
-    private func updateFavorite() {
-        presenter?.viewDidLoad()
     }
 }
 
